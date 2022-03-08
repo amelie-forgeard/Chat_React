@@ -1,9 +1,10 @@
 import { ADD_MESSAGE } from 'src/actions';
+import { getHighestId } from 'src/selectors';
 
 const initialState = {
   messages: [
     {
-      id: 1,
+      id: 11,
       author: 'Super Chat',
       content: 'Salut ça va ?',
     },
@@ -27,9 +28,11 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case ADD_MESSAGE: {
+      const maxId = getHighestId(state.messages);
+
       // on prépare le nouveau message à injecter
       const newMessage = {
-        id: 999,
+        id: maxId + 1,
         author: 'Vincent',
         content: 'coucou le chat !',
       };
@@ -49,6 +52,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         messages: newMessages,
       };
+
+      // return {
+      //   ...state,
+      //   messages: [
+      //     ...state.messages,
+      //     {
+      //       id: 999,
+      //       author: 'Vincent',
+      //       content: 'coucou le chat !',
+      //     },
+      //   ],
+      // };
     }
     default:
       return state;
