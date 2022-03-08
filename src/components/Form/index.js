@@ -17,8 +17,8 @@ export default function Form() {
     dispatch(addMessage());
   };
 
-  const handleChange = () => {
-    const action = changeInputValue();
+  const handleChange = (event) => {
+    const action = changeInputValue(event.target.value);
     dispatch(action);
   };
 
