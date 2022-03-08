@@ -1,6 +1,10 @@
 // == Import : npm
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
+// le composant Provider va nous servir à injecter
+// le store de redux dans l'application
+import { Provider } from 'react-redux';
+import store from 'src/store';
 
 // == Import : local
 // Composants
@@ -11,7 +15,9 @@ import Chatroom from 'src/components/Chatroom';
 //    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (
   <StrictMode>
-    <Chatroom />
+    <Provider store={store}>
+      <Chatroom />
+    </Provider>
   </StrictMode>
 );
 // 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
