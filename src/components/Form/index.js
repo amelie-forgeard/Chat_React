@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addMessage, changeInputValue } from 'src/actions';
 import './style.scss';
@@ -20,6 +20,14 @@ export default function Form() {
 
   const inputValue = useSelector((state) => state.newMessage);
 
+  // on pose une ref sur l'input
+  const inputRef = useRef();
+
+  // au 1e rendu du composant,je veux avoir le focus sur l'input
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // ici je veux changer le tableau de messages
@@ -37,6 +45,7 @@ export default function Form() {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <input
+        ref={inputRef}
         value={inputValue}
         className="form__input"
         type="text"
