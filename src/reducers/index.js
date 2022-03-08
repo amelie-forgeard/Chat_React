@@ -52,6 +52,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         messages: newMessages,
+        // on vide aussi newMessage => on vide ce qu'affiche l'input
         newMessage: '',
       };
 
