@@ -19,7 +19,7 @@ const initialState = {
       content: 'stp ?',
     },
   ],
-  newMessage: 'test du nouveau message',
+  newMessage: '',
 };
 
 // le reducer est une fonction qui retourne TOUJOURS un state

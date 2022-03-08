@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addMessage } from 'src/actions';
+import { addMessage, changeInputValue } from 'src/actions';
 import './style.scss';
 
 export default function Form() {
@@ -17,6 +17,11 @@ export default function Form() {
     dispatch(addMessage());
   };
 
+  const handleChange = () => {
+    const action = changeInputValue();
+    console.log(action);
+  };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <input
@@ -24,6 +29,7 @@ export default function Form() {
         className="form__input"
         type="text"
         placeholder="Saisissez votre message..."
+        onChange={handleChange}
       />
       <button
         className="form__button"
