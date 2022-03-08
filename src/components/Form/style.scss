@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  &__input {
+    border: none;
+    flex: 1;
+    padding: calc(var(--gutter) * 1.5);
+    font-size: 1.2rem;
+    &::placeholder {
+      color: var(--grey);
+    }
+  }
+  &__button {
+    border: none;
+    width: 100px;
+  }
+}

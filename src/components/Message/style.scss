@@ -1,0 +1,16 @@
+.message {
+  margin-bottom: calc(var(--gutter) * 2);
+  font-size: .8rem;
+  &__author {
+    margin-left: calc(var(--gutter) * 2);
+    margin-bottom: var(--gutter);
+  }
+  &__content {
+    display: inline-block;
+    background-color: white;
+    padding: calc(var(--gutter) * 1.5);
+    border-radius: 30px;
+    min-width: 150px;
+    color: var(--blue);
+  }
+}
