@@ -19,7 +19,7 @@ export default function Form() {
 
   const handleChange = () => {
     const action = changeInputValue();
-    console.log(action);
+    dispatch(action);
   };
 
   return (
