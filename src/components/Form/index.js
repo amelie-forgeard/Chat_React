@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { addMessage } from 'src/actions';
 import './style.scss';
 
 export default function Form() {
@@ -11,11 +12,7 @@ export default function Form() {
     // qui est dans le state
     // le state est dans le store, il faut communiquer
     // avec ce store => dispatch !!
-    console.log('je soumets le form');
-
-    dispatch({
-      type: 'ADD_MESSAGE',
-    });
+    dispatch(addMessage());
   };
 
   return (
