@@ -1,4 +1,4 @@
-import { ADD_MESSAGE } from 'src/actions';
+import { ADD_MESSAGE, CHANGE_INPUT_VALUE } from 'src/actions';
 import { getHighestId } from 'src/selectors';
 
 const initialState = {
@@ -65,6 +65,12 @@ const reducer = (state = initialState, action = {}) => {
       //     },
       //   ],
       // };
+    }
+    case CHANGE_INPUT_VALUE: {
+      return {
+        ...state,
+        newMessage: action.payload,
+      };
     }
     default:
       return state;
