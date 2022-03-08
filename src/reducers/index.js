@@ -35,7 +35,7 @@ const reducer = (state = initialState, action = {}) => {
       const newMessage = {
         id: maxId + 1,
         author: 'Vincent',
-        content: 'coucou le chat !',
+        content: state.newMessage,
       };
 
       // IMMUTABILITE
@@ -52,6 +52,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         messages: newMessages,
+        newMessage: '',
       };
 
       // return {

@@ -1,8 +1,20 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addMessage, changeInputValue } from 'src/actions';
 import './style.scss';
 
 export default function Form() {
+  // cas d'utilisation du champs contrôlé avec un state local
+  // const [inputValue, setInputValue] = useState('');
+  // const handleChange = (event) => {
+  //   setInputValue(event.target.value);
+  // };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   // il faudra passer la valeur du state local dans le payload de l'action
+  //   dispatch(addMessage(inputValue));
+  // };
+
   // on récupère la méthode dispatch du store avec le hook useDispatch
   const dispatch = useDispatch();
 
