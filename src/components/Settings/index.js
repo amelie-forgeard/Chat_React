@@ -1,10 +1,13 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleSettings } from 'src/actions';
 import './style.scss';
 
 export default function Settings() {
   const { open } = useSelector((state) => state.settings);
+  const dispatch = useDispatch();
+
   const handleToggle = () => {
-    console.log('handleToggle');
+    dispatch(toggleSettings());
   };
 
   return (
