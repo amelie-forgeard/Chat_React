@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleSettings, changeValue, login } from 'src/actions';
 
@@ -22,11 +21,6 @@ export default function Settings() {
     // => dispatch d'une action
     // cette action sera traitée dans un Middleware
     dispatch(login());
-
-    // const response = await axios.post('http://localhost:3001/login', {
-    //   email: 'bouclierman@herocorp.io',
-    //   password: 'jennifer',
-    // });
   };
 
   return (
