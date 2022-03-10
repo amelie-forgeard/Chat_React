@@ -93,25 +93,34 @@ const reducer = (state = initialState, action = {}) => {
       // };
     }
     case CHANGE_VALUE: {
-      if (action.key === 'email') {
-        // comme on fait un return ici
-        // on a pas besoin du else
-        return {
-          ...state,
-          settings: {
-            ...state.settings,
-            email: action.value,
-          },
-        };
-      }
-
       return {
         ...state,
         settings: {
           ...state.settings,
-          password: action.value,
+          // on peut choisir dynamiquement la propriété à changer dans l'objet settings
+          // on appelle ça une computed property/propriété calculée
+          [action.key]: action.value,
         },
       };
+      // if (action.key === 'email') {
+      //   // comme on fait un return ici
+      //   // on a pas besoin du else
+      //   return {
+      //     ...state,
+      //     settings: {
+      //       ...state.settings,
+      //       email: action.value,
+      //     },
+      //   };
+      // }
+
+      // return {
+      //   ...state,
+      //   settings: {
+      //     ...state.settings,
+      //     password: action.value,
+      //   },
+      // };
     }
     default:
       return state;
