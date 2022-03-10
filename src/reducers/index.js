@@ -2,24 +2,11 @@ import { ADD_MESSAGE, CHANGE_INPUT_VALUE } from 'src/actions';
 import { getHighestId } from 'src/selectors';
 
 const initialState = {
-  messages: [
-    {
-      id: 11,
-      author: 'Super Chat',
-      content: 'Salut ça va ?',
-    },
-    {
-      id: 2,
-      author: 'Super Chat',
-      content: 'T\'as pas des super croquettes ?',
-    },
-    {
-      id: 3,
-      author: 'Super Chat',
-      content: 'stp ?',
-    },
-  ],
+  messages: [],
   newMessage: '',
+  settings: {
+    open: true,
+  },
 };
 
 // le reducer est une fonction qui retourne TOUJOURS un state
