@@ -1,5 +1,7 @@
+import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleSettings, changeValue } from 'src/actions';
+import { toggleSettings, changeValue, login } from 'src/actions';
+
 import './style.scss';
 
 export default function Settings() {
@@ -14,6 +16,19 @@ export default function Settings() {
     dispatch(changeValue(event.target.value, event.target.name));
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // pour se logguer on va faire comme pour un changement de state
+    // => dispatch d'une action
+    // cette action sera traitée dans un Middleware
+    dispatch(login());
+
+    // const response = await axios.post('http://localhost:3001/login', {
+    //   email: 'bouclierman@herocorp.io',
+    //   password: 'jennifer',
+    // });
+  };
+
   return (
     <div className={`settings ${open ? 'settings--open' : ''}`}>
       <button
@@ -23,7 +38,7 @@ export default function Settings() {
       >
         +
       </button>
-      <form className="settings__form">
+      <form className="settings__form" onSubmit={handleSubmit}>
         <input
           type="email"
           className="settings__input"
