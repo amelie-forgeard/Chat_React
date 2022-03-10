@@ -10,8 +10,8 @@ export default function Settings() {
     dispatch(toggleSettings());
   };
 
-  const handleChange = () => {
-    dispatch(changeValue());
+  const handleChange = (event) => {
+    dispatch(changeValue(event.target.value, event.target.name));
   };
 
   return (
@@ -38,6 +38,7 @@ export default function Settings() {
           name="password"
           placeholder="Mot de passe"
           value={password}
+          onChange={handleChange}
         />
         <button
           type="submit"

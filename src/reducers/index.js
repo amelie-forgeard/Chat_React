@@ -1,11 +1,16 @@
-import { ADD_MESSAGE, CHANGE_INPUT_VALUE, TOGGLE_SETTINGS } from 'src/actions';
+import {
+  ADD_MESSAGE,
+  CHANGE_INPUT_VALUE,
+  TOGGLE_SETTINGS,
+  CHANGE_VALUE,
+} from 'src/actions';
 import { getHighestId } from 'src/selectors';
 
 const initialState = {
   messages: [],
   newMessage: '',
   settings: {
-    open: false,
+    open: true,
     email: 'test@test.com',
     password: '123',
   },
@@ -86,6 +91,27 @@ const reducer = (state = initialState, action = {}) => {
       //     open: !state.settings.open,
       //   },
       // };
+    }
+    case CHANGE_VALUE: {
+      if (action.key === 'email') {
+        // comme on fait un return ici
+        // on a pas besoin du else
+        return {
+          ...state,
+          settings: {
+            ...state.settings,
+            email: action.value,
+          },
+        };
+      }
+
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          password: action.value,
+        },
+      };
     }
     default:
       return state;

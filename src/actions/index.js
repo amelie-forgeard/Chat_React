@@ -19,6 +19,8 @@ export const toggleSettings = () => ({
   type: TOGGLE_SETTINGS,
 });
 
-export const changeValue = () => ({
+export const changeValue = (value, key) => ({
   type: CHANGE_VALUE,
+  value,
+  key,
 });
