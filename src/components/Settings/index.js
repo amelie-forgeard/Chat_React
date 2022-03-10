@@ -1,11 +1,16 @@
 import './style.scss';
 
 export default function Settings() {
+  const handleToggle = () => {
+    console.log('handleToggle');
+  };
+
   return (
     <div className="settings settings--open">
       <button
         className="settings__toggler"
         type="button"
+        onClick={handleToggle}
       >
         +
       </button>
