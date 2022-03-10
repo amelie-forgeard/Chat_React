@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from 'src/reducers';
 import logger from 'src/middlewares/logger';
+import auth from 'src/middlewares/auth';
 
 // ici si la fonction __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ existe, on viendra connecter
 // le Redux Devtools avec la prise en charge des autres enhancers(ex: Middleware)
@@ -15,7 +16,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // qui permet de retourner le state
 const store = createStore(
   reducer,
-  composeEnhancers(applyMiddleware(logger)),
+  composeEnhancers(applyMiddleware(logger, auth)),
 );
 
 export default store;

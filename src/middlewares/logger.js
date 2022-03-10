@@ -5,7 +5,7 @@
 // ici on utilise la technique du currying, de faire un param par fonction
 // toutes les actions qui sont dispatchées, vont passer par les middlewares tour par tour
 const logger = (store) => (next) => (action) => {
-  console.log('je passe dans le MW logger', store, next, action);
+  console.log('Logger : ', action);
 
   // si je veux laisser passer l'action au prochain MW ou au reducer
   // on utilise la fonction next avec l'action en argument
