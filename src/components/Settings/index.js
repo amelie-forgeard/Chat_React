@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleSettings } from 'src/actions';
+import { toggleSettings, changeValue } from 'src/actions';
 import './style.scss';
 
 export default function Settings() {
@@ -8,6 +8,10 @@ export default function Settings() {
 
   const handleToggle = () => {
     dispatch(toggleSettings());
+  };
+
+  const handleChange = () => {
+    dispatch(changeValue());
   };
 
   return (
@@ -26,6 +30,7 @@ export default function Settings() {
           name="email"
           placeholder="Email"
           value={email}
+          onChange={handleChange}
         />
         <input
           type="password"
