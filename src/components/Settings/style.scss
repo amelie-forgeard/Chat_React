@@ -7,6 +7,9 @@
   padding: var(--gutter);
   &--open {
     transform: translateX(0);
+    .settings__toggler {
+      transform: rotate(45deg);
+    }
   }
   &__toggler {
     position: absolute;
