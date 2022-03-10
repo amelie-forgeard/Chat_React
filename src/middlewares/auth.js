@@ -17,7 +17,6 @@ const auth = (store) => (next) => (action) => {
         .then((response) => {
           // une fois qu'on a la réponse du server, on veut stocker les data (pseudo) dans le state
           // on veut modifier notre state qui est dans le store, donc on dispatch une action
-          console.log(response.data.pseudo);
           store.dispatch(saveUser(response.data.pseudo));
         })
         .catch((error) => console.log(error));

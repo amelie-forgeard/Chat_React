@@ -3,6 +3,7 @@ import {
   CHANGE_INPUT_VALUE,
   TOGGLE_SETTINGS,
   CHANGE_VALUE,
+  SAVE_USER,
 } from 'src/actions';
 import { getHighestId } from 'src/selectors';
 
@@ -11,8 +12,11 @@ const initialState = {
   newMessage: '',
   settings: {
     open: true,
-    email: 'test@test.com',
-    password: '123',
+    email: '',
+    password: '',
+  },
+  user: {
+    pseudo: 'Anomyme',
   },
 };
 
@@ -121,6 +125,14 @@ const reducer = (state = initialState, action = {}) => {
       //     password: action.value,
       //   },
       // };
+    }
+    case SAVE_USER: {
+      return {
+        ...state,
+        user: {
+          pseudo: action.pseudo,
+        },
+      };
     }
     default:
       return state;
