@@ -1,4 +1,4 @@
-import { ADD_MESSAGE, CHANGE_INPUT_VALUE } from 'src/actions';
+import { ADD_MESSAGE, CHANGE_INPUT_VALUE, TOGGLE_SETTINGS } from 'src/actions';
 import { getHighestId } from 'src/selectors';
 
 const initialState = {
@@ -60,6 +60,30 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         newMessage: action.payload,
       };
+    }
+    case TOGGLE_SETTINGS: {
+      // on est toujours en déclaratif, il faut donc toujours avoir
+      // des références nouvelles pour les objets et tableaux
+      // IMMUTABILITE
+      const newSettings = {
+        // on oublie de spread les éventuelles propriétés
+        // de l'ancien state dans le nouvel objet
+        ...state.settings,
+        open: !state.settings.open,
+      };
+
+      return {
+        ...state,
+        settings: newSettings,
+      };
+
+      // return {
+      //   ...state,
+      //   settings: {
+      //     ...state.settings,
+      //     open: !state.settings.open,
+      //   },
+      // };
     }
     default:
       return state;
