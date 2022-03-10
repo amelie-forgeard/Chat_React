@@ -1,12 +1,14 @@
+import { useSelector } from 'react-redux';
 import './style.scss';
 
 export default function Settings() {
+  const { open } = useSelector((state) => state.settings);
   const handleToggle = () => {
     console.log('handleToggle');
   };
 
   return (
-    <div className="settings settings--open">
+    <div className={`settings ${open ? 'settings--open' : ''}`}>
       <button
         className="settings__toggler"
         type="button"

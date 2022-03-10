@@ -5,7 +5,7 @@ const initialState = {
   messages: [],
   newMessage: '',
   settings: {
-    open: true,
+    open: false,
   },
 };
 
