@@ -32,7 +32,7 @@ const reducer = (state = initialState, action = {}) => {
       // on prépare le nouveau message à injecter
       const newMessage = {
         id: maxId + 1,
-        author: 'Vincent',
+        author: state.user.pseudo,
         content: state.newMessage,
       };
 
@@ -129,7 +129,14 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_USER: {
       return {
         ...state,
+        settings: {
+          ...state.settings,
+          open: false,
+          email: '',
+          password: '',
+        },
         user: {
+          ...state.user,
           pseudo: action.pseudo,
         },
       };
