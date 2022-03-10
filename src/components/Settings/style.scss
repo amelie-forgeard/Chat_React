@@ -1,0 +1,38 @@
+.settings {
+  position: fixed;
+  right: 0;
+  transform: translateX(100%);
+  top: 0;
+  width: 200px;
+  padding: var(--gutter);
+  &--open {
+    transform: translateX(0);
+  }
+  &__toggler {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: -35px;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--indigo);
+    background-color: white;
+  }
+  &__input {
+    border: none;
+    padding: calc(var(--gutter) / 2);
+    margin-bottom: calc(var(--gutter) / 2);
+    border-radius: 3px;
+    width: 100%;
+  }
+  &__submit {
+    background-color: var(--indigo);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    padding: calc(var(--gutter) / 2);
+  }
+}
