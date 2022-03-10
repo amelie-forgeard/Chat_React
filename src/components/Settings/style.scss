@@ -5,6 +5,7 @@
   top: 0;
   width: 200px;
   padding: var(--gutter);
+  transition: transform .25s ease-out;
   &--open {
     transform: translateX(0);
     .settings__toggler {
@@ -22,6 +23,10 @@
     font-weight: bold;
     color: var(--indigo);
     background-color: white;
+    transition: transform .25s ease-out;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   &__input {
     border: none;

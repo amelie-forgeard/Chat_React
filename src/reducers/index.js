@@ -6,6 +6,8 @@ const initialState = {
   newMessage: '',
   settings: {
     open: false,
+    email: 'test@test.com',
+    password: '123',
   },
 };
 

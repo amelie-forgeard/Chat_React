@@ -3,7 +3,7 @@ import { toggleSettings } from 'src/actions';
 import './style.scss';
 
 export default function Settings() {
-  const { open } = useSelector((state) => state.settings);
+  const { open, email, password } = useSelector((state) => state.settings);
   const dispatch = useDispatch();
 
   const handleToggle = () => {
@@ -25,12 +25,14 @@ export default function Settings() {
           className="settings__input"
           name="email"
           placeholder="Email"
+          value={email}
         />
         <input
           type="password"
           className="settings__input"
           name="password"
           placeholder="Mot de passe"
+          value={password}
         />
         <button
           type="submit"
