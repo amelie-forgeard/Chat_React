@@ -5,8 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <title>Modele</title>
+        <!-- en chargeant le script on aura tout ce qu'il faut pour ouvrir la connexion
+          bidirectionnelle => on pourra entrer dans le bar -->
+        <script src="http://localhost:3001/socket.io/socket.io.js"></script>
     </head>
     <body>
-        <div id="root"></div>
+      <div id="root"></div>
+      <script>
+        // ici on ouvre la connexion bidirectionnelle
+        const socket = window.io('http://localhost:3001');
+
+        // dès que la connexion est ouverte, on écoute ce qui vient du server
+        socket.on('server_message', (message) => {
+          console.log(message);
+        });
+
+        // j'envoie un événement depuis le client
+        socket.emit('client_message', { author: 'Vincent', content: 'Salut les gens' });
+      </script>
     </body>
 </html>
