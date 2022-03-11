@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { isMessageMine } from 'src/selectors';
 import './style.scss';
 
 export default function Message({ author, content }) {
   // on détermine si le message est le nôtre en comparant l'author
   // avec le user connecté à l'application (pseudo)
-  const pseudo = useSelector((state) => state.user.pseudo);
-  const classnames = author === pseudo ? 'message message--is-mine' : 'message';
+  const isMine = useSelector(isMessageMine(author));
+  const classnames = isMine ? 'message message--is-mine' : 'message';
 
   return (
     <div className={classnames}>
