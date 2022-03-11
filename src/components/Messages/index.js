@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import vocarooSound from 'src/assets/sounds/vocaroo.mp3';
+import { useSound } from 'src/hooks';
 import Message from 'src/components/Message';
 import './style.scss';
 
@@ -25,7 +27,15 @@ export default function Messages() {
 
     // 3e méthode
     scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+
+    // // à chaque nouveau message je veux lire le fichier vocaroo.mp3
+    // if (messages.length > 0) {
+    //   const sound = new Audio(vocarooSound);
+    //   sound.play();
+    // }
   }, [messages]);
+
+  useSound(vocarooSound, messages);
 
   return (
     <div className="messages" ref={messagesRef}>
