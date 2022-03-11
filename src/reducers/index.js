@@ -27,15 +27,6 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case ADD_MESSAGE: {
-      // const maxId = getHighestId(state.messages);
-
-      // // on prépare le nouveau message à injecter
-      // const newMessage = {
-      //   id: maxId + 1,
-      //   author: state.user.pseudo,
-      //   content: state.newMessage,
-      // };
-
       // IMMUTABILITE
       // on ne travaille que sur des nouvelles références
       // ici je mute directement le state courant => INTERDIT
