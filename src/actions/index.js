@@ -6,6 +6,7 @@ export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const LOGIN = 'LOGIN';
 export const SAVE_USER = 'SAVE_USER';
 export const WS_CONNECT = 'WS_CONNECT';
+export const SEND_MESSAGE = 'SEND_MESSAGE';
 
 // ACTION CREATORS
 export const addMessage = () => ({
@@ -39,4 +40,8 @@ export const saveUser = (pseudo) => ({
 
 export const wsConnect = () => ({
   type: WS_CONNECT,
+});
+
+export const sendMessage = () => ({
+  type: SEND_MESSAGE,
 });

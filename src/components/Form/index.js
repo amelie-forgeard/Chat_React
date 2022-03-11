@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMessage, changeInputValue } from 'src/actions';
+import { sendMessage, changeInputValue } from 'src/actions';
 import './style.scss';
 
 export default function Form() {
@@ -30,11 +30,8 @@ export default function Form() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // ici je veux changer le tableau de messages
-    // qui est dans le state
-    // le state est dans le store, il faut communiquer
-    // avec ce store => dispatch !!
-    dispatch(addMessage());
+    // ici je veux envoyer le message au server websocket
+    dispatch(sendMessage());
   };
 
   const handleChange = (event) => {
