@@ -5,6 +5,7 @@ export const TOGGLE_SETTINGS = 'TOGGLE_SETTINGS';
 export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const LOGIN = 'LOGIN';
 export const SAVE_USER = 'SAVE_USER';
+export const WS_CONNECT = 'WS_CONNECT';
 
 // ACTION CREATORS
 export const addMessage = () => ({
@@ -34,4 +35,8 @@ export const login = () => ({
 export const saveUser = (pseudo) => ({
   type: SAVE_USER,
   pseudo,
+});
+
+export const wsConnect = () => ({
+  type: WS_CONNECT,
 });
