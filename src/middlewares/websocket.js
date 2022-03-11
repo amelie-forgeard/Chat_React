@@ -1,12 +1,12 @@
-import { WS_CONNECT, SEND_MESSAGE } from 'src/actions';
+import { WS_CONNECT, SEND_MESSAGE, addMessage } from 'src/actions';
 
 // pour pouvoir utiliser la connexion socket dans tous les case
 // on prépare une let hors du MW
 let socket;
+// on peut se connecter directement au WS
+// const socket = window.io('http://localhost:3001');
 
 const websocket = (store) => (next) => (action) => {
-  console.log('MW websocket');
-
   switch (action.type) {
     case WS_CONNECT: {
       // ici on ouvre la connexion bidirectionnelle
@@ -14,7 +14,9 @@ const websocket = (store) => (next) => (action) => {
 
       // dès que la connexion est ouverte, on écoute ce qui vient du server
       socket.on('server_message', (message) => {
-        console.log(message);
+        // quand on reçoit un nouveau message, il faut le stocker dans le state
+        // changement de state => dispatch d'action
+        store.dispatch(addMessage(message));
       });
       break;
     }
