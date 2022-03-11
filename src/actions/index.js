@@ -9,8 +9,9 @@ export const WS_CONNECT = 'WS_CONNECT';
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 
 // ACTION CREATORS
-export const addMessage = () => ({
+export const addMessage = (message) => ({
   type: ADD_MESSAGE,
+  message,
 });
 
 export const changeInputValue = (value) => ({

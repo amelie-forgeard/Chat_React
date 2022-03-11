@@ -27,14 +27,14 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case ADD_MESSAGE: {
-      const maxId = getHighestId(state.messages);
+      // const maxId = getHighestId(state.messages);
 
-      // on prépare le nouveau message à injecter
-      const newMessage = {
-        id: maxId + 1,
-        author: state.user.pseudo,
-        content: state.newMessage,
-      };
+      // // on prépare le nouveau message à injecter
+      // const newMessage = {
+      //   id: maxId + 1,
+      //   author: state.user.pseudo,
+      //   content: state.newMessage,
+      // };
 
       // IMMUTABILITE
       // on ne travaille que sur des nouvelles références
@@ -45,7 +45,7 @@ const reducer = (state = initialState, action = {}) => {
       // on déverse les messages du state courant à l'intérieur
       const newMessages = [...state.messages];
       // on injecte le nouveau message dans le nouveau tableau de message
-      newMessages.push(newMessage);
+      newMessages.push(action.message);
 
       return {
         ...state,
