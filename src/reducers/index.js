@@ -130,6 +130,8 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         settings: {
+          // ici on remet le state de settings à zéro
+          // on referme le formulaire et on vide les champs
           ...state.settings,
           open: false,
           email: '',

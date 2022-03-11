@@ -7,3 +7,4 @@
 8. touch pour le mobile
 9. afficher l'heure d'envoi
 10. faire un composant commun pour tous les inputs
+11. gestion d'erreur

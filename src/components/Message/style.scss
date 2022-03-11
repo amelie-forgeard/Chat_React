@@ -26,4 +26,19 @@
       left: 30px;
     }
   }
+  &--is-mine {
+    text-align: right;
+    .message__content {
+      &::before {
+        border-color: transparent transparent transparent #ffffff;
+        border-width: 20px 0 0 20px;
+        left: auto;
+        right: 30px;
+      }
+    }
+    .message__author {
+      margin-right: calc(var(--gutter) * 2);
+      margin-left: auto;
+    }
+  }
 }
