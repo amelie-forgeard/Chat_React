@@ -12,7 +12,6 @@ export default function Chatroom() {
 
   // au 1e rendu du composant Chatroom, je veux me connecter au WS
   useEffect(() => {
-    console.log('je veux me connecter au WS', wsConnect());
     dispatch(wsConnect());
   }, []);
 
