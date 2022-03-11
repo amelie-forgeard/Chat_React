@@ -77,6 +77,15 @@ module.exports = {
           filename: 'fonts/[hash][ext][query]'
         }
       },
+      {
+        test: /\.(mp3)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { outputPath: 'sound/' },
+          },
+        ],
+      },
     ],
   },
 };
